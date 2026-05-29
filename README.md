@@ -52,11 +52,11 @@ Once videos are added, Clipscape automatically processes each one through five s
 
 | Stage | What it does |
 | ----- | ------------ |
-| **T** Thumbnails | Probes the file, extracts technical metadata (codec, resolution, camera, GPS, …), and generates a primary thumbnail plus scrub-bar frames |
-| **S** Subtitles  | Transcribes audio with Whisper (downloads the model on first run) |
-| **D** Scenes     | Extracts frames and detects significant scene changes |
-| **A** Analysis   | Sends scene frames + subtitles to your chosen LLM for content analysis |
-| **G** Tags       | Asks your chosen LLM to auto-tag the video |
+| Generate Thumbnails | Probes the file, extracts technical metadata (codec, resolution, camera, GPS, …), and generates a primary thumbnail plus scrub-bar frames |
+| Transcribe Subtitles  | Transcribes audio with Whisper (downloads the model on first run) |
+| Detect Scenes     | Extracts frames and detects significant scene changes |
+| Analyse Content   | Sends scene frames + subtitles to your chosen LLM for content analysis |
+| Semantic Tagging       | Asks your chosen LLM to auto-tag the video |
 
 Each video card shows five coloured dots representing the stages. The **Progress** panel at the bottom of the window shows live status and a running log.
 
