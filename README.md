@@ -26,25 +26,25 @@ Clipscape routes all of its LLM features (video analysis, auto-tagging, and the 
 
 > Costs are billed directly to your OpenRouter account based on usage and the models you choose. Analysis and tagging run once per video; chat costs depend on how much you use it and how large a context you send. The settings screen shows an icon ($) next to cost-affecting options and also shows live per-million-token prices next to each model. Once processed, each video will also show how much it cost to run through the analysis and tagging steps.
 
-### Choosing models (optional)
+### Choosing models
 
 The **Content Analysis** tab has three model pickers, each filtered to models capable of the task:
 
-- **Video Analysis (multimodal)** — must be vision- and tool-use-capable; used for the per-video content analysis.
-- **Auto-tagging** — text-only, tool-use-capable; a cheaper/faster model usually works well here.
-- **RAG Chat** — tool-use-capable; powers the chat assistant.
+- **Video Analysis (multimodal)**: must be vision and tool-use-capable; used for the per-video content analysis.
+- **Auto-tagging**: text-only, tool-use-capable; a cheaper/faster model usually works well here.
+- **RAG Chat**: tool-use-capable; powers the chat assistant.
 
 By default each picker shows a curated shortlist. Flip the **Advanced** toggle to browse the full live OpenRouter catalogue, and use **Refresh** to re-fetch the latest list and prices. A separate **Enhanced Analysis** tab lets you configure a higher-fidelity model and frame settings for re-running a single video on demand.
 
 ## 3. Add a source folder
 
-Clipscape doesn't move or copy your videos — it indexes them in place.
+Clipscape doesn't move or copy your videos. It reads them and extracts individual frames and voice transcription and stores those in it's own folder.
 
 1. In the left sidebar, click **Add Folders** and pick a directory containing videos (or **Add Video** to pick individual files).
 2. Clipscape previews the folder, warns about any overlap with folders you've already added, then recursively scans for supported files (`.mp4`, `.avi`, `.mkv`, `.mov`, `.wmv`) and adds them to your library.
 3. Duplicate files (same path, or identical content at a different path) are skipped automatically.
 
-The grid in the middle of the window populates with cards — one per video — as soon as the scan finishes. By default Clipscape also re-scans your source folders for new files automatically.
+The grid in the middle of the window populates with cards, one per video, as soon as the scan finishes.
 
 ## 4. Let the pipeline process your videos
 
@@ -60,9 +60,9 @@ Once videos are added, Clipscape automatically processes each one through five s
 
 Each video card shows five coloured dots representing the stages. The **Progress** panel at the bottom of the window shows live status and a running log.
 
-> The first time the subtitle stage runs, Clipscape downloads the Whisper model (the default is **Large v3 Turbo**), the matching `whisper-cli` binary (~300 MB), and — if Voice Activity Detection is enabled — the small Silero VAD model (~2 MB). These are one-off downloads; later videos reuse the cached files. On machines with an NVIDIA GPU, Clipscape auto-selects the CUDA backend on first run.
+> The first time the subtitle stage runs, Clipscape downloads the Whisper model (the default is **Large v3 Turbo**), the matching `whisper-cli` binary (~300 MB), and, if Voice Activity Detection is enabled, the small Silero VAD model (~2 MB). These are one-off downloads; later videos reuse the cached files. On machines with an NVIDIA GPU, Clipscape auto-selects the CUDA backend on first run.
 
-Thumbnails and subtitles run without any API key. The **Analysis** and **Tags** stages only run once you've added an OpenRouter key and enabled AI features — if the key is missing or rejected, those tasks park in a **Blocked** state and resume automatically once you fix the config. You don't need to wait for everything to finish before chatting, but a video must reach at least the **Analysis** stage before chat can answer questions about it meaningfully.
+Thumbnails and subtitles run without any API key. The **Analysis** and **Tags** stages only run once you've added an OpenRouter key and enabled AI features. If the key is missing or rejected, those tasks park in a **Blocked** state and resume automatically once you fix the config. You don't need to wait for everything to finish before chatting, but a video must reach at least the **Analysis** stage before chat can answer questions about it meaningfully.
 
 You can also re-run an individual stage, re-run the whole pipeline, or kick off a one-off **Enhanced Analysis** pass (higher-resolution frames / a stronger model) from a video's detail view.
 
@@ -71,11 +71,11 @@ You can also re-run an individual stage, re-run the whole pipeline, or kick off 
 1. Click the **Assistant** strip at the bottom of the window to expand the chat panel.
 2. Use the **Ask about** dropdown to choose a scope:
     - **Entire library** — chat across every analyzed video
-    - **Current view** — limit to the videos matching your current filters/search (auto-selected when filters are active)
+    - **Current view** — limit to the videos matching within the currently selected project
     - **Selected video** — chat only about the video you have selected in the grid
 3. Type a question — e.g. *"Which videos feature outdoor scenes at sunset?"* or *"Summarise what happens in this clip"* — and press **Enter**.
 
-The assistant answers with a short intro followed by grouped video cards — each card shows a thumbnail, title, an optional description, and (where relevant) start/end timestamp chips. Click a card or a citation to jump straight to that video and seek to the referenced moment. Expand the **sources** drawer under an answer to see exactly which transcript, moment, entity, scene, or analysis snippets the answer was grounded in. Use **Clear** to start a fresh conversation.
+The assistant answers with a short intro followed by grouped video cards. Each card shows a thumbnail, title, an optional description, and (where relevant) start/end timestamp chips. Click a card or a citation to jump straight to that video and seek to the referenced moment. Expand the **sources** drawer under an answer to see exactly which transcript, moment, entity, scene, or analysis snippets the answer was grounded in. Use **Clear** to start a fresh conversation.
 
-That's it — you're now chatting with your video library.
+That's it! you're now chatting with your video library.
 
