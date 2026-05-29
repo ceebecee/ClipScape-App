@@ -79,3 +79,7 @@ The assistant answers with a short intro followed by grouped video cards. Each c
 
 That's it! you're now chatting with your video library.
 
+
+## Logging Issues and Feature Requests
+If you find any bugs or have a feature you think would be useful, please add an issue here in Github -> https://github.com/ceebecee/ClipScape-App/issues
+
